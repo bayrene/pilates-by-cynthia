@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilates by Cynthia — Certified Pilates Instructor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FAF6F1;
+            --warm-white: #FFFFFF;
+            --sage: #A8B5A0;
+            --sage-light: #C8D4C2;
+            --sage-dark: #7A8C72;
+            --sand: #D4C5B2;
+            --sand-light: #E8DED2;
+            --clay: #C4A882;
+            --earth: #8B7355;
+            --text-dark: #3D3628;
+            --text-medium: #6B5D4F;
+            --text-light: #9A8B7A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            line-height: 1.3;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.5s ease, padding 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(250, 246, 241, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 3rem;
+            box-shadow: 0 2px 30px rgba(61, 54, 40, 0.06);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-dark);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-medium);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--sage-dark);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: var(--text-dark);
+            margin: 6px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -15%;
+            width: 60vw;
+            height: 60vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--sage-light) 0%, transparent 70%);
+            opacity: 0.25;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: -10%;
+            width: 45vw;
+            height: 45vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--sand-light) 0%, transparent 70%);
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-tagline {
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--sage-dark);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--sage-dark);
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--text-medium);
+            max-width: 520px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.82rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.4s ease;
+        }
+
+        .btn-primary {
+            background: var(--sage);
+            color: var(--warm-white);
+            border: 2px solid var(--sage);
+        }
+
+        .btn-primary:hover {
+            background: var(--sage-dark);
+            border-color: var(--sage-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(168, 181, 160, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-medium);
+            border: 1.5px solid var(--sand);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--sage);
+            color: var(--sage-dark);
+            transform: translateY(-2px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-light);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* ── Section Shared ── */
+        section {
+            padding: 7rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--sage-dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .section-description {
+            font-size: 1.05rem;
+            color: var(--text-medium);
+            max-width: 580px;
+            line-height: 1.8;
+        }
+
+        /* ── Organic Divider ── */
+        .wave-divider {
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave-divider svg {
+            display: block;
+            width: 100%;
+            height: 80px;
+        }
+
+        /* ── About ── */
+        .about {
+            background: var(--warm-white);
+            position: relative;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image-frame {
+            position: relative;
+        }
+
+        .about-image-circle {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+            background: linear-gradient(135deg, var(--sage-light) 0%, var(--sand-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image-circle::after {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border-radius: inherit;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .about-placeholder-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-style: italic;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .about-decorative-circle {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 1px solid var(--sand);
+            bottom: -30px;
+            right: -30px;
+        }
+
+        .about-text h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text h2 em {
+            font-style: italic;
+            color: var(--sage-dark);
+        }
+
+        .about-text p {
+            color: var(--text-medium);
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+
+        .about-credentials {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--sand-light);
+        }
+
+        .credential {
+            text-align: center;
+        }
+
+        .credential-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--sage-dark);
+            font-weight: 300;
+        }
+
+        .credential-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        /* ── Services ── */
+        .services {
+            position: relative;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .services-header .section-description {
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--warm-white);
+            border-radius: 30px;
+            padding: 3rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(61, 54, 40, 0.06);
+            border-color: var(--sand-light);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--sage-light);
+            opacity: 0.15;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scale(1.3);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sage-light), var(--sage));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-tag {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            background: var(--cream);
+            color: var(--text-light);
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        /* ── Philosophy ── */
+        .philosophy {
+            background: linear-gradient(170deg, var(--sage-light) 0%, var(--sage) 100%);
+            color: white;
+            text-align: center;
+            border-radius: 60px;
+            margin: 0 2rem;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .philosophy::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 80%;
+            height: 150%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .philosophy::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            right: -10%;
+            width: 50%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .philosophy-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .philosophy .section-label {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .philosophy blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+        }
+
+        .philosophy p {
+            font-size: 1rem;
+            opacity: 0.85;
+            line-height: 1.8;
+        }
+
+        /* ── How It Works ── */
+        .how-it-works {
+            background: var(--warm-white);
+        }
+
+        .how-it-works .services-header {
+            margin-bottom: 4rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            position: relative;
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 15%;
+            right: 15%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--sand), transparent);
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--cream);
+            border: 1.5px solid var(--sand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--sage-dark);
+            position: relative;
+            z-index: 1;
+        }
+
+        .step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .step p {
+            color: var(--text-medium);
+            font-size: 0.92rem;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        /* ── Testimonials ── */
+        .testimonials {
+            text-align: center;
+        }
+
+        .testimonials .services-header {
+            margin-bottom: 4rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--warm-white);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            text-align: left;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '\201C';
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: var(--sage-light);
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            margin-top: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sage-light), var(--sand-light));
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+        }
+
+        .testimonial-role {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        /* ── Contact / CTA ── */
+        .contact {
+            text-align: center;
+            padding-bottom: 5rem;
+        }
+
+        .contact-card {
+            background: var(--warm-white);
+            border-radius: 40px;
+            padding: 5rem 3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -30%;
+            width: 100%;
+            height: 150%;
+            border-radius: 50%;
+            background: var(--sage-light);
+            opacity: 0.06;
+        }
+
+        .contact-card::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            right: -20%;
+            width: 70%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--sand-light);
+            opacity: 0.08;
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            margin-bottom: 1rem;
+        }
+
+        .contact h2 em {
+            font-style: italic;
+            color: var(--sage-dark);
+        }
+
+        .contact p {
+            color: var(--text-medium);
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-email {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--sage-dark);
+            text-decoration: none;
+            border-bottom: 1px solid var(--sage-light);
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-email:hover {
+            color: var(--sage);
+            border-color: var(--sage);
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--sand-light);
+        }
+
+        .contact-method {
+            text-align: center;
+        }
+
+        .contact-method-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-method-value {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .contact-method-value a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-method-value a:hover {
+            color: var(--sage-dark);
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--sand-light);
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* ── Animations ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image-circle {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .steps::before {
+                display: none;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .philosophy {
+                border-radius: 30px;
+                margin: 0 1rem;
+            }
+        }
+
+        @media (max-width: 650px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: var(--cream);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                z-index: 99;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1rem;
+            }
+
+            .mobile-toggle {
+                display: block;
+                z-index: 101;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 5rem;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-credentials {
+                gap: 1.5rem;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            section {
+                padding: 5rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="nav-logo">Pilates by Cynthia</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about" onclick="closeMenu()">About</a></li>
+            <li><a href="#services" onclick="closeMenu()">Services</a></li>
+            <li><a href="#philosophy" onclick="closeMenu()">Philosophy</a></li>
+            <li><a href="#testimonials" onclick="closeMenu()">Kind Words</a></li>
+            <li><a href="#contact" onclick="closeMenu()">Connect</a></li>
+        </ul>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-up">
+            <p class="hero-tagline">Certified Pilates Instructor</p>
+            <h1>Pilates by <em>Cynthia</em></h1>
+            <p class="hero-description">Thoughtful, personalized Pilates instruction rooted in mindful movement and the belief that every body deserves to feel strong.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Book a Session</a>
+                <a href="#services" class="btn btn-outline">Explore Services</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Wave Divider -->
+    <div class="wave-divider">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#FFFFFF"/>
+        </svg>
+    </div>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <div class="about-grid">
+                <div class="about-image-frame fade-up">
+                    <div class="about-image-circle">
+                        <p class="about-placeholder-text">Your photo here</p>
+                    </div>
+                    <div class="about-decorative-circle"></div>
+                </div>
+                <div class="about-text fade-up">
+                    <p class="section-label">About Cynthia</p>
+                    <h2>Movement is a <em>practice</em>, not a performance</h2>
+                    <p>I'm a certified freelance Pilates instructor who partners with studios across the area to bring focused, high-quality instruction to their communities. Whether I'm leading a group reformer class or working one-on-one in a private session, my approach stays the same — meet you where you are and help you move forward.</p>
+                    <p>With a deep understanding of anatomy and alignment, I create sessions that are both challenging and deeply nourishing. Every cue, every transition, every breath is intentional.</p>
+                    <div class="about-credentials">
+                        <div class="credential">
+                            <div class="credential-number">500+</div>
+                            <div class="credential-label">Hours Certified</div>
+                        </div>
+                        <div class="credential">
+                            <div class="credential-number">Mat & Reformer</div>
+                            <div class="credential-label">Specialties</div>
+                        </div>
+                        <div class="credential">
+                            <div class="credential-number">All Levels</div>
+                            <div class="credential-label">Welcome</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="section-container">
+            <div class="services-header fade-up">
+                <p class="section-label">Services</p>
+                <h2 class="section-title">How We Can Work Together</h2>
+                <p class="section-description">Whether through a studio partnership or a private session tailored just for you, every format is designed with the same care and attention.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Studio Group Classes</h3>
+                    <p>I partner with Pilates studios to teach group mat and reformer classes. Studios hire me to bring my expertise and energy to their existing schedule, delivering a consistent, high-quality experience for their members.</p>
+                    <span class="service-tag">Mat &amp; Reformer</span>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                    </div>
+                    <h3>Private Sessions</h3>
+                    <p>One-on-one Pilates tailored entirely to your body, goals, and pace. Privates offer the deepest level of personalization — ideal for rehabilitation, specific goals, or simply wanting undivided attention and guidance.</p>
+                    <span class="service-tag">1:1 Personalized</span>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </div>
+                    <h3>Workshops &amp; Special Events</h3>
+                    <p>Themed workshops that explore specific topics in depth — from breath work to prenatal Pilates to movement for desk workers. Available for studios looking to offer something unique to their community.</p>
+                    <span class="service-tag">By Arrangement</span>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <h3>Studio Partnerships</h3>
+                    <p>I'm available for ongoing teaching partnerships with studios seeking a reliable, experienced instructor. I integrate seamlessly into your studio's culture and bring consistent quality to every class on the schedule.</p>
+                    <span class="service-tag">Ongoing Availability</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="philosophy" id="philosophy">
+        <div class="philosophy-content fade-up">
+            <p class="section-label">My Approach</p>
+            <blockquote>&ldquo;I believe Pilates is for every body. My role is to create a space where you feel safe to explore movement, build strength, and reconnect with yourself.&rdquo;</blockquote>
+            <p>Every session begins with listening. Whether you're recovering from an injury, training for performance, or simply seeking more ease in daily life — the work always starts with understanding where you are today.</p>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="section-container">
+            <div class="services-header fade-up">
+                <p class="section-label">Getting Started</p>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-description">Simple steps to begin your Pilates journey, whether you're brand new or returning to the practice.</p>
+            </div>
+            <div class="steps">
+                <div class="step fade-up">
+                    <div class="step-number">1</div>
+                    <h3>Reach Out</h3>
+                    <p>Send me a message and tell me a little about yourself — your experience, goals, and what you're looking for.</p>
+                </div>
+                <div class="step fade-up">
+                    <div class="step-number">2</div>
+                    <h3>Consultation</h3>
+                    <p>We'll have a brief conversation to make sure we're a good fit and discuss the best format for your goals.</p>
+                </div>
+                <div class="step fade-up">
+                    <div class="step-number">3</div>
+                    <h3>Begin Moving</h3>
+                    <p>Book your first session or find me on the schedule at a partner studio. Your practice starts here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-container">
+            <div class="services-header fade-up">
+                <p class="section-label">Kind Words</p>
+                <h2 class="section-title">What People Are Saying</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-up">
+                    <p class="testimonial-text">Cynthia has an incredible ability to make every person in the room feel seen. Her cues are clear, her energy is warm, and I always leave feeling taller.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar"></div>
+                        <div>
+                            <div class="testimonial-name">Studio Client</div>
+                            <div class="testimonial-role">Group Reformer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-up">
+                    <p class="testimonial-text">After years of back pain, private sessions with Cynthia changed everything. She understood my body better than I did and gave me tools I use every day.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar"></div>
+                        <div>
+                            <div class="testimonial-name">Private Client</div>
+                            <div class="testimonial-role">1:1 Sessions</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-up">
+                    <p class="testimonial-text">We've had Cynthia on our teaching roster for over a year and our members consistently rate her classes among the highest. She's a true professional.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar"></div>
+                        <div>
+                            <div class="testimonial-name">Studio Owner</div>
+                            <div class="testimonial-role">Partner Studio</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="section-container">
+            <div class="contact-card fade-up">
+                <div class="contact-content">
+                    <p class="section-label">Get in Touch</p>
+                    <h2>Let's <em>Move</em> Together</h2>
+                    <p>Whether you're a studio looking for an experienced instructor or an individual ready to begin your Pilates journey, I'd love to hear from you.</p>
+                    <a href="mailto:hello@pilatesbycynthia.com" class="contact-email">hello@pilatesbycynthia.com</a>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-method-label">Based In</div>
+                            <div class="contact-method-value">Your City, ST</div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-label">Availability</div>
+                            <div class="contact-method-value">Mon — Sat</div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-label">Social</div>
+                            <div class="contact-method-value"><a href="#">@pilatesbycynthia</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Pilates by Cynthia</div>
+        <p>&copy; 2026 Pilates by Cynthia. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        function closeMenu() {
+            navLinks.classList.remove('open');
+        }
+
+        // Scroll-triggered fade-up animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
